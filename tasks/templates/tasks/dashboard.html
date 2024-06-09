@@ -1,0 +1,22 @@
+<!-- tasks/templates/tasks/dashboard.html -->
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2 class="display-4">Welcome, {{ user.username }}!</h2>
+<p class="lead"><span id="typed" class="typing"></span></p>
+<a href="{% url 'task-list' %}" class="btn btn-lg btn-primary mt-4">View Your Tasks</a>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+            document.addEventListener('DOMContentLoaded', function () {
+
+            new Typed("#typed", {
+                strings: ["Organize your tasks seamlessly.", "Track your progress effortlessly.", "Achieve your goals with TaskMaster."],
+                typeSpeed: 50,
+                backSpeed: 50,
+                loop: true
+            });
+        });
+    </script>
+{% endblock %}

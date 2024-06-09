@@ -1,0 +1,22 @@
+<!-- templates/400.html -->
+{% extends 'base.html' %}
+
+{% block title %}Bad Request{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h1>400</h1>
+                </div>
+                <div class="card-body">
+                    <p>Bad request. The server could not understand the request.</p>
+                    <a href="{% url 'dashboard' %}" class="btn btn-primary mt-3">Go to Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+<!-- tasks/templates/tasks/task_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Task List{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Tasks</h2>
+    <a href="{% url 'task-create' %}" class="btn btn-primary">Create New Task</a>
+</div>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.due_date }}</td>
+            <td>
+                {% if task.status == 'completed' %}
+                <span class="text-success"><i class="fas fa-check-circle"></i> Completed</span>
+                {% elif task.status == 'in-progress' %}
+                <span class="text-warning"><i class="fas fa-spinner"></i> In Progress</span>
+                {% else %}
+                <span class="text-secondary"><i class="fas fa-clock"></i> To Do</span>
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'task-detail' task.id %}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+                <a href="{% url 'task-edit' task.id %}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                <a href="{% url 'task-delete' task.id %}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
