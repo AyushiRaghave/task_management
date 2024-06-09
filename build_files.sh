@@ -1,7 +1,9 @@
-# build_files.sh
-pip install -r requirements.txt
+#!/bin/bash
 
-# make migrations
-python3.9 manage.py makemigrations --noinput 
-python3.9 manage.py migrate --noinput 
-python3.9 manage.py collectstatic --noinput --clear
+# Install dependencies
+pip3 install -r requirements.txt
+
+# Make migrations
+python3 manage.py makemigrations --noinput 
+python3 manage.py migrate --noinput 
+python3 manage.py collectstatic --noinput --clear
