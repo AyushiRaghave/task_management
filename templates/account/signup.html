@@ -1,26 +1,33 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
-{% block title %}Sign Up{% endblock %}
+{% block title %}Sign Up - DoneDesk{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <div class="row justify-content-center">
+<!-- Main container for the signup form -->
+<div class="container d-flex justify-content-center align-items-center mt-5" style="min-height: 80vh;">
+    <div class="row justify-content-center w-100">
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header text-center">
-                    <h2>Sign Up</h2>
+            <!-- Card for the signup form -->
+            <div class="card shadow-sm">
+                <div class="card-header text-center bg-success text-white">
+                    <!-- Title of the signup form -->
+                    <h2><i class="fas fa-user-plus"></i> Sign Up</h2>
                 </div>
                 <div class="card-body">
+                    <!-- Signup form starts here -->
                     <form method="post" action="{% url 'account_signup' %}">
                         {% csrf_token %}
+                        <!-- Using crispy forms to render the form fields -->
                         {{ form|crispy }}
+                        <!-- Button to submit the signup form -->
                         <div class="d-grid gap-2 mt-3">
-                            <button type="submit" class="btn btn-success btn-block">Sign Up</button>
+                            <button type="submit" class="btn btn-success btn-block"><i class="fas fa-user-plus"></i> Sign Up</button>
                         </div>
                     </form>
                 </div>
                 <div class="card-footer text-center">
+                    <!-- Link to the login page for users who already have an account -->
                     <p>Already have an account? <a href="{% url 'account_login' %}">Login</a></p>
                 </div>
             </div>

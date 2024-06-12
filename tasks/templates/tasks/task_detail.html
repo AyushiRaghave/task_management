@@ -4,7 +4,7 @@
 {% block title %}Task Detail{% endblock %}
 
 {% block content %}
-<h2>{{ task.title }}</h2>
+<h2 class="mt-5">{{ task.title }}</h2>
 <p>{{ task.description }}</p>
 <p>Due: {{ task.due_date }}</p>
 <p>Status: {{ task.get_status_display }}</p>
