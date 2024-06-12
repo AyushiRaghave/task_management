@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'crispy_forms',
     'crispy_bootstrap4',
-    'users',
     'tasks',
 ]
 
